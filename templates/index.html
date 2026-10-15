@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noyan Hossain | Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="logo">Noyan<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact" class="btn-nav">Contact Me</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section with Photo -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="badge">Statistics & Data Science Student</span>
+                <h1>Hi, I'm <span class="highlight">Noyan Hossain</span></h1>
+                <h2>Data Analyst & Python Web Developer</h2>
+                <p>Transforming complex data into meaningful insights & building modern web applications.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary-btn">View Projects</a>
+                    <a href="#contact" class="btn secondary-btn">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- static ফোল্ডারে থাকা noyan.jpg ছবিটি লোড করবে -->
+                <img src="{{ url_for('static', filename='noyan.jpg') }}" alt="Noyan Hossain">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-card">
+            <p>
+                I am an undergraduate student studying <strong>Statistics and Data Science at the University of Rajshahi</strong>. 
+                My academic journey gives me a strong foundation in statistical modeling, probability theory, and data analysis. 
+                Combined with my passion for <strong>Python and Web Development</strong>, I love building data-driven tools and clean web applications.
+            </p>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fa-solid fa-chart-pie skill-icon"></i>
+                <h3>Statistics & Data Analysis</h3>
+                <p>Statistical Inference, Hypothesis Testing, Regression Analysis, Experimental Design</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-code skill-icon"></i>
+                <h3>Programming & Libraries</h3>
+                <p>Python (Pandas, NumPy, Matplotlib, SymPy), R Programming, C/C++</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-laptop-code skill-icon"></i>
+                <h3>Web Development</h3>
+                <p>HTML5, CSS3, Flask Framework, REST APIs</p>
+            </div>
+            <div class="skill-card">
+                <i class="fa-solid fa-database skill-icon"></i>
+                <h3>Tools & Technologies</h3>
+                <p>Git, GitHub, MS Excel (Advanced Analysis), PyCharm, RStudio</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Data Analysis & Visualization</h3>
+                <p>Statistical analysis and visual reporting on real-world datasets using Python (Pandas, Matplotlib) and R.</p>
+                <span class="tag">Python</span> <span class="tag">R</span> <span class="tag">Data Analysis</span>
+            </div>
+            <div class="project-card">
+                <h3>Flask Portfolio Application</h3>
+                <p>A full-stack portfolio website built with Python Flask framework and customized responsive design.</p>
+                <span class="tag">Flask</span> <span class="tag">HTML/CSS</span> <span class="tag">Python</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-card">
+            <p><i class="fa-solid fa-graduation-cap"></i> Department of Statistics, University of Rajshahi</p>
+            <p><i class="fa-solid fa-envelope"></i> Email: your-email@example.com</p>
+            <div class="social-links">
+                <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Noyan Hossain. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
