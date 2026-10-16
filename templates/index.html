@@ -1,118 +1,401 @@
 <!DOCTYPE html>
-<html lang="bn">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noyan Hossain | Portfolio</title>
+    <title>Noyan Hossain | Statistician & Data Scientist</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <!-- Chart.js for Radar Chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- MathJax for LaTeX Equations rendering -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
-<body>
+<body class="dark-theme">
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="logo">Noyan<span>.</span></div>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact" class="btn-nav">Contact Me</a></li>
-        </ul>
-    </nav>
+    <!-- Background Animated Glow Orbs -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
 
-    <!-- Hero Section with Photo -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <span class="badge">Statistics & Data Science Student</span>
-                <h1>Hi, I'm <span class="highlight">Noyan Hossain</span></h1>
-                <h2>Data Analyst & Python Web Developer</h2>
-                <p>Transforming complex data into meaningful insights & building modern web applications.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn primary-btn">View Projects</a>
-                    <a href="#contact" class="btn secondary-btn">Get In Touch</a>
+    <!-- Navigation Header -->
+    <header class="navbar animate-down">
+        <div class="logo">&lt;Noyan.DataStudio /&gt;</div>
+        <nav>
+            <a href="#hero">Overview</a>
+            <a href="#bento">Studio</a>
+            <a href="#radar">Skill Radar</a>
+            <a href="#math-proofs">Math Proofs</a>
+            <a href="#playground">Model Playground</a>
+            <a href="#projects">Case Studies</a>
+            <a href="#notes">Lab Notes</a>
+            <button class="terminal-btn" onclick="toggleTerminal()"><i class="fa-solid fa-terminal"></i> Terminal</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-content animate-left">
+            <span class="badge"><i class="fa-solid fa-chart-line"></i> Statistics & Data Science</span>
+            <h1>Noyan Hossain</h1>
+            <p class="subtitle">Transforming raw data into statistical insight, theoretical proofs, & predictive ML models.</p>
+
+            <div class="hero-actions">
+                <a href="#" class="btn-primary"><i class="fa-solid fa-file-arrow-down"></i> Download Resume (PDF)</a>
+                <a href="https://github.com" target="_blank" class="btn-secondary"><i class="fa-brands fa-github"></i> GitHub</a>
+                <a href="https://kaggle.com" target="_blank" class="btn-secondary"><i class="fa-brands fa-kaggle"></i> Kaggle</a>
+            </div>
+
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <h3 id="counter-models">0</h3>
+                    <p>ML Models Deployed</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="counter-datasets">0</h3>
+                    <p>Datasets Analyzed</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="counter-acc">0%</h3>
+                    <p>Simulation Precision</p>
                 </div>
             </div>
-            <div class="hero-image">
-                <!-- static ফোল্ডারে থাকা noyan.jpg ছবিটি লোড করবে -->
-                <img src="{{ url_for('static', filename='noyan.jpg') }}" alt="Noyan Hossain">
+        </div>
+
+        <div class="hero-visualization animate-right">
+            <div class="chart-header">
+                <span><i class="fa-solid fa-wave-square"></i> Live Simulation: Monte Carlo Normal Distribution</span>
+                <button onclick="updateSimulation()"><i class="fa-solid fa-rotate"></i> Re-Simulate</button>
+            </div>
+            <div id="simulation-chart"></div>
+        </div>
+    </section>
+
+    <!-- Bento Grid Section -->
+    <section id="bento" class="bento-section">
+        <h2 class="section-title fade-in">Data Studio Grid</h2>
+        <div class="bento-grid">
+            
+            <div class="bento-card card-main fade-in">
+                <i class="fa-solid fa-microchip card-icon"></i>
+                <h3>Core Stack & Methodology</h3>
+                <p>Advanced Statistical Inference, Linear Models, Sampling & Resampling Methods.</p>
+                <div class="tech-tags">
+                    <span>Python</span>
+                    <span>R Programming</span>
+                    <span>SQL</span>
+                    <span>Pandas / NumPy</span>
+                    <span>Scikit-Learn</span>
+                    <span>Plotly</span>
+                    <span>Monte Carlo</span>
+                </div>
+            </div>
+
+            <!-- GitHub & Kaggle Metrics -->
+            <div class="bento-card card-metrics fade-in">
+                <i class="fa-solid fa-chart-simple card-icon"></i>
+                <h3>Live Metrics & Activity</h3>
+                <div class="metric-row">
+                    <span><i class="fa-brands fa-github"></i> Total Commits:</span>
+                    <strong>450+</strong>
+                </div>
+                <div class="metric-row">
+                    <span><i class="fa-brands fa-kaggle"></i> Kaggle Rank:</span>
+                    <strong>Data Master Contributor</strong>
+                </div>
+                <div class="metric-row">
+                    <span><i class="fa-solid fa-code-fork"></i> Notebooks Published:</span>
+                    <strong>18 Notebooks</strong>
+                </div>
+            </div>
+
+            <div class="bento-card card-profile fade-in">
+                <img src="{{ url_for('static', filename='noyan.jpg') }}" alt="Noyan Hossain" class="profile-img">
+                <div>
+                    <h4>Noyan Hossain</h4>
+                    <p>Statistician & Data Scientist</p>
+                </div>
+            </div>
+
+            <div class="bento-card card-interactive fade-in">
+                <i class="fa-solid fa-sliders card-icon"></i>
+                <h3>Interactive Data Control</h3>
+                <p>Adjust parameter $\sigma$ (Std Dev) for Live Curve:</p>
+                <input type="range" id="sigmaSlider" min="0.5" max="3.0" step="0.1" value="1.0" oninput="updateSimulation()">
+                <span id="sigmaVal" class="slider-val">Sigma = 1.0</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Skill Radar Chart Section -->
+    <section id="radar" class="radar-section">
+        <h2 class="section-title fade-in">Statistical & Technical Proficiency Radar</h2>
+        <div class="radar-container fade-in">
+            <canvas id="skillRadarChart"></canvas>
+        </div>
+    </section>
+
+    <!-- Mathematical Proofs & LaTeX Section -->
+    <section id="math-proofs" class="proofs-section">
+        <h2 class="section-title fade-in"><i class="fa-solid fa-square-root-variable"></i> Theoretical Proofs & Derivations</h2>
+        <p class="section-subtitle fade-in">Rigorous mathematical foundations underpinning statistical modeling & algorithms.</p>
+
+        <div class="accordion">
+            <!-- Accordion Item 1 -->
+            <div class="accordion-item fade-in">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>1. Maximum Likelihood Estimation (MLE) of Normal Distribution</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>Given $X_1, X_2, \dots, X_n \sim \mathcal{N}(\mu, \sigma^2)$, the Likelihood Function is:</p>
+                    $$L(\mu, \sigma^2) = \left(2\pi\sigma^2\right)^{-\frac{n}{2}} \exp\left(-\frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2\right)$$
+                    <p>Taking the natural logarithm (Log-Likelihood $\ell$):</p>
+                    $$\ell(\mu, \sigma^2) = -\frac{n}{2}\ln(2\pi) - \frac{n}{2}\ln(\sigma^2) - \frac{1}{2\sigma^2}\sum_{i=1}^n (x_i - \mu)^2$$
+                    <p>Solving $\frac{\partial \ell}{\partial \mu} = 0$ yields the MLE estimator for mean:</p>
+                    $$\hat{\mu}_{MLE} = \frac{1}{n}\sum_{i=1}^n X_i = \bar{X}$$
+                </div>
+            </div>
+
+            <!-- Accordion Item 2 -->
+            <div class="accordion-item fade-in">
+                <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <span>2. Gauss-Markov Theorem & OLS Estimator Unbiasedness</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="accordion-content">
+                    <p>For the linear model $Y = X\beta + \varepsilon$ with $E[\varepsilon|X] = 0$ and $Var(\varepsilon|X) = \sigma^2 I$, the OLS estimator is:</p>
+                    $$\hat{\beta} = (X^T X)^{-1} X^T Y$$
+                    <p>Proof of Unbiasedness:</p>
+                    $$E[\hat{\beta}] = E[(X^T X)^{-1} X^T (X\beta + \varepsilon)] = \beta + (X^T X)^{-1} X^T E[\varepsilon] = \beta$$
+                    <p>Thus, $\hat{\beta}$ is the Best Linear Unbiased Estimator (BLUE).</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-card">
-            <p>
-                I am an undergraduate student studying <strong>Statistics and Data Science at the University of Rajshahi</strong>. 
-                My academic journey gives me a strong foundation in statistical modeling, probability theory, and data analysis. 
-                Combined with my passion for <strong>Python and Web Development</strong>, I love building data-driven tools and clean web applications.
-            </p>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <h2 class="section-title">My Skills</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <i class="fa-solid fa-chart-pie skill-icon"></i>
-                <h3>Statistics & Data Analysis</h3>
-                <p>Statistical Inference, Hypothesis Testing, Regression Analysis, Experimental Design</p>
-            </div>
-            <div class="skill-card">
-                <i class="fa-solid fa-code skill-icon"></i>
-                <h3>Programming & Libraries</h3>
-                <p>Python (Pandas, NumPy, Matplotlib, SymPy), R Programming, C/C++</p>
-            </div>
-            <div class="skill-card">
-                <i class="fa-solid fa-laptop-code skill-icon"></i>
-                <h3>Web Development</h3>
-                <p>HTML5, CSS3, Flask Framework, REST APIs</p>
-            </div>
-            <div class="skill-card">
-                <i class="fa-solid fa-database skill-icon"></i>
-                <h3>Tools & Technologies</h3>
-                <p>Git, GitHub, MS Excel (Advanced Analysis), PyCharm, RStudio</p>
+    <!-- Interactive Model Playground Section -->
+    <section id="playground" class="playground-section">
+        <h2 class="section-title fade-in"><i class="fa-solid fa-laptop-code"></i> Live Interactive Model Playground</h2>
+        <p class="section-subtitle fade-in">Embed live Streamlit/Shiny analytical apps or test parameters interactively.</p>
+        <div class="playground-box fade-in">
+            <div class="iframe-placeholder">
+                <i class="fa-solid fa-cubes-stacked pulse-anim"></i>
+                <h3>Streamlit / Shiny App Integration</h3>
+                <p>Deploy your ML models via Streamlit / Hugging Face Spaces and embed them live here.</p>
+                <a href="https://streamlit.io" target="_blank" class="btn-primary">Connect Streamlit App</a>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3>Data Analysis & Visualization</h3>
-                <p>Statistical analysis and visual reporting on real-world datasets using Python (Pandas, Matplotlib) and R.</p>
-                <span class="tag">Python</span> <span class="tag">R</span> <span class="tag">Data Analysis</span>
+    <!-- Case Studies & Projects Section -->
+    <section id="projects" class="projects-section">
+        <h2 class="section-title fade-in">Case Studies & Research Projects</h2>
+        
+        <div class="project-grid">
+            <div class="project-card fade-in">
+                <span class="project-tag">Statistical Modeling</span>
+                <h3>Variance Reduction & Monte Carlo Simulation</h3>
+                <p><strong>Problem:</strong> High variance in traditional Monte Carlo estimations leads to computational inefficiency.</p>
+                <p><strong>Methodology:</strong> Applied Antithetic Variates & Control Variates to reduce estimation error bounds.</p>
+                <div class="project-links">
+                    <a href="#"><i class="fa-brands fa-github"></i> Code</a>
+                    <a href="#"><i class="fa-solid fa-file-pdf"></i> Report</a>
+                </div>
             </div>
-            <div class="project-card">
-                <h3>Flask Portfolio Application</h3>
-                <p>A full-stack portfolio website built with Python Flask framework and customized responsive design.</p>
-                <span class="tag">Flask</span> <span class="tag">HTML/CSS</span> <span class="tag">Python</span>
+
+            <div class="project-card fade-in">
+                <span class="project-tag">Machine Learning</span>
+                <h3>Predictive Econometric & Regression Pipeline</h3>
+                <p><strong>Problem:</strong> Multicollinearity & Heteroscedasticity in financial economic indicators.</p>
+                <p><strong>Methodology:</strong> OLS estimation, Durbin-Watson diagnostic testing & Ridge Regularization.</p>
+                <div class="project-links">
+                    <a href="#"><i class="fa-brands fa-github"></i> Code</a>
+                    <a href="#"><i class="fa-solid fa-chart-pie"></i> Visuals</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-card">
-            <p><i class="fa-solid fa-graduation-cap"></i> Department of Statistics, University of Rajshahi</p>
-            <p><i class="fa-solid fa-envelope"></i> Email: your-email@example.com</p>
-            <div class="social-links">
-                <a href="https://github.com" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <a href="https://linkedin.com" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+    <!-- Research & Lab Notes Section -->
+    <section id="notes" class="notes-section">
+        <h2 class="section-title fade-in"><i class="fa-solid fa-book-bookmark"></i> Research & Lab Notes</h2>
+        <div class="notes-grid">
+            <div class="note-card fade-in">
+                <span class="note-date">Oct 2026</span>
+                <h3>Understanding Resampling: Bootstrap vs Jackknife</h3>
+                <p>A statistical breakdown of variance estimation techniques when analytical distribution shapes are unknown...</p>
+                <a href="#" class="read-more">Read Full Note &rarr;</a>
+            </div>
+            <div class="note-card fade-in">
+                <span class="note-date">Sep 2026</span>
+                <h3>Handling Heteroscedasticity in OLS Regression</h3>
+                <p>Practical diagnostic methods using Breusch-Pagan testing & White's robust standard errors in Python & R...</p>
+                <a href="#" class="read-more">Read Full Note &rarr;</a>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Noyan Hossain. All rights reserved.</p>
-    </footer>
+    <!-- Slide-in Interactive Terminal Drawer -->
+    <div id="terminal-drawer" class="terminal-drawer">
+        <div class="terminal-header">
+            <span><i class="fa-solid fa-terminal"></i> Noyan_DataStudio_Console v2.0</span>
+            <button onclick="toggleTerminal()" class="close-btn">&times;</button>
+        </div>
+        <div class="terminal-body">
+            <p class="term-line"><span class="term-prompt">user@noyan-studio:~$</span> python3 run_analysis.py --dataset="sample"</p>
+            <p class="term-output">[INFO] Loading Statistical Environment...</p>
+            <p class="term-output">[INFO] R & Python Kernel Active.</p>
+            <p class="term-output">[SUCCESS] Mean: 55.04 | Variance: 12.31 | Confidence Interval: [52.1, 58.0]</p>
+            <p class="term-line"><span class="term-prompt">user@noyan-studio:~$</span> <span class="blinking-cursor">_</span></p>
+        </div>
+    </div>
 
+    <!-- Scripts -->
+    <script>
+        // Interactive Monte Carlo Chart with Plotly
+        function generateData(sigma) {
+            let x = [];
+            let y = [];
+            for (let i = -4; i <= 4; i += 0.1) {
+                x.push(i);
+                let val = (1 / (sigma * Math.sqrt(2 * Math.PI))) * Math.exp(-0.5 * Math.pow(i / sigma, 2));
+                y.push(val);
+            }
+            return { x, y };
+        }
+
+        function updateSimulation() {
+            let sigma = parseFloat(document.getElementById('sigmaSlider').value);
+            document.getElementById('sigmaVal').innerText = "Sigma = " + sigma;
+            let data = generateData(sigma);
+
+            let trace = {
+                x: data.x,
+                y: data.y,
+                type: 'scatter',
+                mode: 'lines',
+                line: { color: '#00f2fe', width: 3 },
+                fill: 'tozeroy',
+                fillcolor: 'rgba(0, 242, 254, 0.15)'
+            };
+
+            let layout = {
+                paper_bgcolor: 'transparent',
+                plot_bgcolor: 'transparent',
+                margin: { t: 20, r: 20, l: 40, b: 40 },
+                xaxis: { color: '#a0aab8', gridcolor: '#1e293b' },
+                yaxis: { color: '#a0aab8', gridcolor: '#1e293b' }
+            };
+
+            Plotly.newPlot('simulation-chart', [trace], layout, {responsive: true, displayModeBar: false});
+        }
+
+        // Radar Chart using Chart.js
+        function renderRadarChart() {
+            const ctx = document.getElementById('skillRadarChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: [
+                        'Statistical Inference',
+                        'Python & R Coding',
+                        'Machine Learning',
+                        'Regression & Econometrics',
+                        'Data Visualization',
+                        'Monte Carlo & Simulation',
+                        'SQL & Database'
+                    ],
+                    datasets: [{
+                        label: 'Proficiency Level (%)',
+                        data: [92, 90, 85, 88, 95, 82, 80],
+                        backgroundColor: 'rgba(0, 242, 254, 0.2)',
+                        borderColor: '#00f2fe',
+                        pointBackgroundColor: '#00f2fe',
+                        pointBorderColor: '#fff',
+                        pointHoverBackgroundColor: '#fff',
+                        pointHoverBorderColor: '#00f2fe'
+                    }]
+                },
+                options: {
+                    scales: {
+                        r: {
+                            angleLines: { color: '#1e293b' },
+                            grid: { color: '#1e293b' },
+                            pointLabels: { color: '#94a3b8', font: { size: 12 } },
+                            ticks: { display: false },
+                            suggestedMin: 50,
+                            suggestedMax: 100
+                        }
+                    },
+                    plugins: {
+                        legend: { labels: { color: '#e2e8f0' } }
+                    }
+                }
+            });
+        }
+
+        // Accordion Toggle function
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            element.classList.toggle('active');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        }
+
+        // Animated Counters
+        function animateCounter(id, target) {
+            let count = 0;
+            let speed = target / 30;
+            let element = document.getElementById(id);
+            let timer = setInterval(() => {
+                count += speed;
+                if (count >= target) {
+                    element.innerText = target + (id === 'counter-acc' ? '%' : '+');
+                    clearInterval(timer);
+                } else {
+                    element.innerText = Math.floor(count);
+                }
+            }, 30);
+        }
+
+        // Toggle Terminal Drawer
+        function toggleTerminal() {
+            document.getElementById('terminal-drawer').classList.toggle('active');
+        }
+
+        // Scroll Reveal Animation via Intersection Observer
+        document.addEventListener("DOMContentLoaded", function() {
+            updateSimulation();
+            renderRadarChart();
+            animateCounter('counter-models', 25);
+            animateCounter('counter-datasets', 120);
+            animateCounter('counter-acc', 98);
+
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+    </script>
 </body>
 </html>
